@@ -1,20 +1,17 @@
 class Solution {
   public:
     void reverseQueue(queue<int> &q) {
-        stack<int> s;
         
-        while(!q.empty()){
-            int data = q.front();
-            s.push(data);
-            q.pop();
+        if( q.empty()){
+            return ;
         }
         
-        while( !s.empty()){
-            int data = s.top();
-            q.push(data);
-            s.pop();
-        }
+        int data = q.front();
+        q.pop();
         
+        reverseQueue(q);
+        
+        q.push(data);
         
     }
 };
